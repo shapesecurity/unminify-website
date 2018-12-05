@@ -1,0 +1,33 @@
+{
+  "version": "0.0.0",
+  "description": "website for the unminifier tool",
+  "main": "index.js",
+  "dependencies": {
+    "ace-builds": "1.4.2"
+  },
+  "devDependencies": {
+    "browserify": "16.2.3",
+    "http-server": "^0.11.1",
+    "uglify-es": "^3.3.9",
+    "uglifyjs": "^2.4.11",
+    "unminify": "1.0.2"
+  },
+  "scripts": {
+    "build:lib": "bash ./update.sh",
+    "test": "http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shapesecurity/unminify-website.git"
+  },
+  "keywords": [
+    "Unminify",
+    "website"
+  ],
+  "author": "Shape Security",
+  "license": "Apache-2",
+  "bugs": {
+    "url": "https://github.com/shapesecurity/unminify-website/issues"
+  },
+  "homepage": "https://github.com/shapesecurity/unminify-website#readme"
+}
