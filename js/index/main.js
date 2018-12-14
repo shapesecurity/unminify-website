@@ -39,12 +39,8 @@ function debounce(func, wait, immediate) {
 var inputEditor = ace.edit(document.querySelector("#input"));
 var outputEditor = ace.edit(document.querySelector("#output"));
 
-//var error = document.querySelector("#demo1 .error-message");
-//var outputContainer = document.querySelector("#demo1 .output-container");
-
 function displayError(exception) {
   hideError();
-  // error.textContent = exception.message;
   console.dir(exception);
   if (exception.line) {
     inputEditor.getSession().setAnnotations([{
@@ -54,18 +50,15 @@ function displayError(exception) {
       type: "error" // also warning and information
     }]);
   }
-  // outputContainer.classList.add("error");
 }
 
 function hideError() {
-  //outputContainer.classList.remove("error");
   inputEditor.getSession().clearAnnotations();
 }
 
 function render(program) {
   hideError();
   outputEditor.setValue(program, -1);
-  //hljs.highlightBlock(outputEditor);
 }
 
 var inputSession = inputEditor.getSession();
@@ -100,7 +93,6 @@ outputSession.setUseWrapMode(false);
 function onChange() {
   var code = inputEditor.getValue();
   try {
-    console.log(safetyLevel);
     var program = unminify(code, { safety: safetyLevel });
   } catch (ex) {
     displayError(ex);

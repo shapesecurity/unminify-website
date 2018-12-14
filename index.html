@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Shift AST</title>
+    <title>Unminify</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -30,24 +30,29 @@
 
     <div class="content">
       <div class="header">
-        <div class="dropdown safety-level">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" id="safety-level-button" aria-haspopup="true" aria-expanded="false">
-            Wildly Unsafe
-          </button>
-          <div class="dropdown-menu" aria-labelledby="safety-level-button">
-            <button class="dropdown-item" type="button" id="slb-useless">Useless</button>
-            <button class="dropdown-item" type="button" id="slb-safe">Safe</button>
-            <button class="dropdown-item" type="button" id="slb-mostly-safe">Mostly Safe</button>
-            <button class="dropdown-item" type="button" id="slb-unsafe">Unsafe</button>
-            <button class="dropdown-item" type="button" id="slb-wildly-unsafe">Wildly Unsafe</button>
+        <div class="safety-level-container">
+          <div class="safety-level-label">Safety Level:</div>
+          <div class="dropdown safety-level">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" id="safety-level-button" aria-haspopup="true" aria-expanded="false">
+              Wildly Unsafe
+            </button>
+            <div class="dropdown-menu" aria-labelledby="safety-level-button">
+              <button class="dropdown-item" type="button" id="slb-useless">Useless</button>
+              <button class="dropdown-item" type="button" id="slb-safe">Safe</button>
+              <button class="dropdown-item" type="button" id="slb-mostly-safe">Mostly Safe</button>
+              <button class="dropdown-item" type="button" id="slb-unsafe">Unsafe</button>
+              <button class="dropdown-item" type="button" id="slb-wildly-unsafe">Wildly Unsafe</button>
+            </div>
           </div>
-        </div>
-        <div class="title">
-          Unminify
         </div>
         <div id="github-container">
           <div id="github-button">
             <a class="github-button" href="https://github.com/shapesecurity/unminify/" data-size="large" data-show-count="true" aria-label="Visit shapesecurity/unminify on GitHub">GitHub</a>
+          </div>
+        </div>
+        <div class="title-container">
+          <div class="title">
+              Unminify
           </div>
         </div>
       </div>
@@ -57,7 +62,7 @@
       </div>
       <div class="footer">
         <div class="copyright">
-          <p>&copy; 2016 Shape Security, Inc.</p>
+          <p>&copy; 2018 Shape Security, Inc.</p>
         </div>
       </div>
     </div>
