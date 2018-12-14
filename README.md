@@ -1,4 +1,4 @@
-# Unminifier Website
+# Unminify Website
 
 ## About
 
