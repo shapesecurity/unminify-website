@@ -48,6 +48,7 @@
   position: relative;
   top: 50%;
   transform: translate(0%, -50%);
+  z-index: 10;
 }
 
 .safety-level-label {
@@ -63,7 +64,6 @@
 .safety-level-container {
   float: left;
   padding-left: .5em;
-  z-index: 10;
   width: 17em;
   height: 100%;
 }
@@ -76,7 +76,8 @@
 #github-container {
   float: right;
   height: 100%;
-
+  width: 17em;
+  text-align: right;
 }
 
 #github-button {
@@ -101,6 +102,10 @@
 @media screen and (max-width: 700px) {
   .title {
     font-size: 4.1vw;
+  }
+
+  #github-container {
+    width: auto;
   }
 }
 
