@@ -69,7 +69,6 @@
 }
 
 #safety-level-button {
-  text-align: right;
   width: 100%;
 }
 
@@ -96,7 +95,8 @@
   display: inline-block;
   text-align: center;
   margin: 0 auto;
-  font-size: 36px;
+  font-size: 32px;
+  font-variant: small-caps;
 }
 
 @media screen and (max-width: 700px) {
