@@ -4,18 +4,19 @@
   "main": "index.js",
   "dependencies": {
     "ace-builds": "1.4.2",
-    "prettier": "1.15.3"
+    "prettier": "1.15.3",
+    "unminify": "1.0.2"
   },
   "devDependencies": {
     "browserify": "16.2.3",
     "http-server": "^0.11.1",
     "uglify-es": "^3.3.9",
-    "uglifyjs": "^2.4.11",
-    "unminify": "1.0.2"
+    "uglifyjs": "^2.4.11"
   },
   "scripts": {
     "build:lib": "bash ./update.sh",
-    "test": "http-server -c-1"
+    "test": "http-server -c-1",
+    "deploy": "rm -rf node_modules vendor && mkdir vendor && npm install --prod && mv node_modules/* vendor/"
   },
   "repository": {
     "type": "git",
