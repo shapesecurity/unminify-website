@@ -16,7 +16,8 @@
   "scripts": {
     "build:lib": "bash ./update.sh",
     "test": "http-server -c-1",
-    "deploy": "rm -rf node_modules vendor && mkdir vendor && npm install --prod && mv node_modules/* vendor/"
+    "preinstall": "rm -rf node_modules vendor && mkdir vendor && npm install --ignore-scripts --prod && mv node_modules/* vendor/",
+    "postinstall": "npm run build:lib"
   },
   "repository": {
     "type": "git",

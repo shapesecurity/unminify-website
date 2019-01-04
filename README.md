@@ -18,19 +18,18 @@ $ npm install unminifier-website
 
 ## Usage
 
-1. `$ npm i` to download dependencies. Use `$ npm i --prod` for deployment.
-2. `$ npm run build:lib` to prepare the unminify library.
-3. `$ npm run test` to load a http server.
-4. Navigate to `http://127.0.0.1:8080` to view the site (or alternate port if 8080 was in use, see the test command output).
+1. `$ npm install` to install dependencies.
+2. `$ npm run test` to load a http server.
+3. Navigate to `http://127.0.0.1:8080` to view the site (or alternate port if 8080 was in use, see the test command output).
 
 ## Contributing
 
 * Open a Github issue with a description of your desired change. If one exists already, leave a message stating that you are working on it with the date you expect it to be complete.
 * Fork this repo, and clone the forked repo.
-* Install dependencies with `npm install`.
-* Build and test in your environment with `npm run build:lib && npm run test`. Note that testing is manual verification in a browser.
+* Install dependencies with `$ npm install`.
+* Build and test in your environment with `$ npm run test`. Note that testing is manual verification in a browser.
 * Create a feature branch. Make your changes. Add tests.
-* Build and test in your environment with `npm run build:lib && npm run test`. Note that testing is manual verification in a browser.
+* Build and test in your environment with `$ npm run test`. Note that testing is manual verification in a browser.
 * Make a commit that includes the text "fixes #*XX*" where *XX* is the Github issue.
 * Open a Pull Request on Github.
 
