@@ -126,3 +126,7 @@
 .copyright > p {
   margin: 0;
 }
+
+.prettier-badge {
+  padding-right: .5em;
+}
