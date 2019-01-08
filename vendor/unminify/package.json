@@ -1,0 +1,89 @@
+{
+  "_args": [
+    [
+      "unminify@1.0.2",
+      "/Users/mbruce/unminifier-website"
+    ]
+  ],
+  "_from": "unminify@1.0.2",
+  "_id": "unminify@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-6QP5qAZglB/ESLhgY9IQeC9BKd5zMwl2hxkJES787NUii/ZSe00z1HlWA5wnVcgMC3pT/rSskk05x0mOVWxp1g==",
+  "_location": "/unminify",
+  "_phantomChildren": {
+    "es6-map": "0.1.5",
+    "esutils": "2.0.2",
+    "multimap": "0.1.1",
+    "object-assign": "4.1.1",
+    "shift-ast": "4.0.0"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "unminify@1.0.2",
+    "name": "unminify",
+    "escapedName": "unminify",
+    "rawSpec": "1.0.2",
+    "saveSpec": null,
+    "fetchSpec": "1.0.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/unminify/-/unminify-1.0.2.tgz",
+  "_spec": "1.0.2",
+  "_where": "/Users/mbruce/unminifier-website",
+  "author": {
+    "name": "Kevin Gibbons",
+    "email": "kevin@shapesecurity.com"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/snapshots-*/**/*.js"
+    ],
+    "snapshotDir": "test/snapshots-out",
+    "failFast": true,
+    "failWithoutAssertions": false
+  },
+  "bin": {
+    "unminify": "bin/cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/shapesecurity/unminify/issues"
+  },
+  "dependencies": {
+    "command-line-args": "4.0.7",
+    "esutils": "2.0.2",
+    "prettier": "1.9.2",
+    "shift-ast": "4.0.0",
+    "shift-codegen": "5.0.5",
+    "shift-parser": "5.2.3",
+    "shift-reducer": "4.1.0",
+    "shift-scope": "3.1.0",
+    "shift-spec": "2016.0.0"
+  },
+  "description": "reverse many of the transformations applied by minifiers and naïve obfuscators",
+  "devDependencies": {
+    "ava": "0.24.0",
+    "eslint": "4.14.0"
+  },
+  "files": [
+    "src",
+    "bin"
+  ],
+  "homepage": "https://github.com/shapesecurity/unminify#readme",
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "name": "unminify",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shapesecurity/unminify.git"
+  },
+  "scripts": {
+    "build": "exit 0",
+    "lint": "eslint src bin",
+    "test": "ava --fail-fast --verbose && npm run lint"
+  },
+  "version": "1.0.2"
+}
