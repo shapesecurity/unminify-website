@@ -6,16 +6,6 @@ This is a website for the [Unminify](https://github.com/shapesecurity/unminify/)
 
 It is available at [unminify.io](http://unminify.io).
 
-## Status
-
-[Stable](http://nodejs.org/api/documentation.html#documentation_stability_index).
-
-## Installation
-
-```sh
-$ npm install unminifier-website
-```
-
 ## Usage
 
 1. `$ npm install` to install dependencies.
