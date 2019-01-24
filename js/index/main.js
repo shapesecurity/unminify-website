@@ -1,6 +1,6 @@
 "use strict";
 
-var safetyLevel = unminify.safetyLevels.UNSAFE;
+var safetyLevel = unminify.safetyLevels.WILDLY_UNSAFE;
 
 // fn from http://underscorejs.org/docs/underscore.html
 // https://github.com/jashkenas/underscore/blob/master/LICENSE
