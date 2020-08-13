@@ -1,6 +1,3 @@
-sudo: false
-language: node_js
+language: generic
 script:
   - curl https://raw.githubusercontent.com/shapesecurity/CLA/HEAD/cla-travis.sh | bash
-node_js:
-  - "10"
