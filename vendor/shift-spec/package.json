@@ -1,8 +1,8 @@
 {
   "name": "shift-spec",
-  "version": "2016.0.0",
+  "version": "2019.0.0",
   "description": "JavaScript representation of the Shift AST specification",
-  "author": "Shape Security Labs",
+  "author": "Shape Security",
   "homepage": "https://github.com/shapesecurity/shift-spec-js",
   "repository": {
     "type": "git",
@@ -11,8 +11,9 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "node src/generate-spec.js",
+    "lint": "eslint src",
     "test": "node ./",
-    "prepublish": "rm -rf dist/* && npm update && npm run build"
+    "prepare": "rm -rf dist/* && npm run build"
   },
   "files": [
     "dist"
@@ -27,8 +28,9 @@
     "implementation"
   ],
   "devDependencies": {
-    "shift-spec-consumer": "1.0.0",
-    "shift-spec-idl": "2016.0.x"
+    "eslint": "^5.6.1",
+    "shift-spec-consumer": "1.0.1",
+    "shift-spec-idl": "2019.0.0"
   },
   "bugs": {
     "url": "https://github.com/shapesecurity/shift-spec-js/issues"

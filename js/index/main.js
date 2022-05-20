@@ -94,7 +94,6 @@ function onChange() {
   var code = inputEditor.getValue();
   try {
     var program = unminify(code, { safety: safetyLevel });
-    program = prettier.format(program, { parser: 'babylon', plugins: prettierPlugins, singleQuote: true });
   } catch (ex) {
     displayError(ex);
     return;
