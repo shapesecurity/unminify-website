@@ -1,23 +1,21 @@
 {
   "version": "0.0.0",
   "description": "website for the unminifier tool",
-  "main": "index.js",
+  "private": true,
   "dependencies": {
     "ace-builds": "1.4.2",
     "prettier": "1.15.3",
     "unminify": "1.0.2"
   },
   "devDependencies": {
-    "browserify": "16.2.3",
+    "esbuild": "0.14.39",
     "http-server": "^0.11.1",
-    "uglify-es": "^3.3.9",
-    "uglifyjs": "^2.4.11"
+    "terser": "5.13.1"
   },
   "scripts": {
     "build:lib": "bash ./update.sh",
     "test": "http-server -c-1",
-    "preinstall": "rm -rf node_modules vendor && mkdir vendor && npm install --ignore-scripts --prod && mv node_modules/* vendor/",
-    "postinstall": "npm run build:lib"
+    "vendor": "rm -rf vendor && mv node_modules tmp_node_modules && mkdir vendor && npm install --ignore-scripts --omit=dev && mv node_modules/* vendor/ && rm -rf node_modules && mv tmp_node_modules node_modules"
   },
   "repository": {
     "type": "git",

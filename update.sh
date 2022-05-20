@@ -1,4 +1,4 @@
-set -x
+set -euxo pipefail
 for module in unminify; do
-  echo 'window.'${module}' = require("'${module}'");' | ./node_modules/.bin/browserify - | ./node_modules/.bin/uglifyjs --compress --mangle -o js/${module}.js
+  echo 'window.'${module}' = require("'${module}'");' | $(npm bin)/esbuild --bundle | ./node_modules/.bin/terser --compress --mangle -o js/${module}.js
 done

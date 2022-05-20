@@ -1,48 +1,22 @@
 {
-  "_args": [
-    [
-      "shift-spec@2016.0.0",
-      "/Users/mbruce/unminifier-website"
-    ]
-  ],
-  "_from": "shift-spec@2016.0.0",
-  "_id": "shift-spec@2016.0.0",
-  "_inBundle": false,
-  "_integrity": "sha1-zwV8OW1846WeXgAwdwIdK1UqJhw=",
-  "_location": "/shift-spec",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "shift-spec@2016.0.0",
-    "name": "shift-spec",
-    "escapedName": "shift-spec",
-    "rawSpec": "2016.0.0",
-    "saveSpec": null,
-    "fetchSpec": "2016.0.0"
-  },
-  "_requiredBy": [
-    "/shift-scope",
-    "/unminify"
-  ],
-  "_resolved": "https://registry.npmjs.org/shift-spec/-/shift-spec-2016.0.0.tgz",
-  "_spec": "2016.0.0",
-  "_where": "/Users/mbruce/unminifier-website",
-  "author": {
-    "name": "Shape Security Labs"
-  },
-  "bugs": {
-    "url": "https://github.com/shapesecurity/shift-spec-js/issues"
-  },
+  "name": "shift-spec",
+  "version": "2016.0.0",
   "description": "JavaScript representation of the Shift AST specification",
-  "devDependencies": {
-    "shift-spec-consumer": "1.0.0",
-    "shift-spec-idl": "2016.0.x"
+  "author": "Shape Security Labs",
+  "homepage": "https://github.com/shapesecurity/shift-spec-js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shapesecurity/shift-spec-js.git"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "node src/generate-spec.js",
+    "test": "node ./",
+    "prepublish": "rm -rf dist/* && npm update && npm run build"
   },
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/shapesecurity/shift-spec-js",
   "keywords": [
     "Shift",
     "AST",
@@ -52,17 +26,12 @@
     "tree",
     "implementation"
   ],
-  "license": "Apache-2.0",
-  "main": "dist/index.js",
-  "name": "shift-spec",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shapesecurity/shift-spec-js.git"
+  "devDependencies": {
+    "shift-spec-consumer": "1.0.0",
+    "shift-spec-idl": "2016.0.x"
   },
-  "scripts": {
-    "build": "node src/generate-spec.js",
-    "prepublish": "rm -rf dist/* && npm update && npm run build",
-    "test": "node ./"
+  "bugs": {
+    "url": "https://github.com/shapesecurity/shift-spec-js/issues"
   },
-  "version": "2016.0.0"
+  "license": "Apache-2.0"
 }
