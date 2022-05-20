@@ -12,6 +12,12 @@ It is available at [unminifer.io](http://unminifer.io).
 2. `$ npm run test` to load a http server.
 3. Navigate to `http://127.0.0.1:8080` to view the site (or alternate port if 8080 was in use, see the test command output).
 
+## Updating
+
+1. `$ npm install` to install dependencies.
+2. `$ npm run build:lib` to regenerate the shipped version of Unminify.
+3. `$ npm run vendor` to regenerated the shipped version of the UI.
+
 ## Contributing
 
 * Open a Github issue with a description of your desired change. If one exists already, leave a message stating that you are working on it with the date you expect it to be complete.
