@@ -2,17 +2,35 @@
 
 /* global module, define */
 
+function mapEach(map, operation){
+  var keys = map.keys();
+  var next;
+  while(!(next = keys.next()).done) {
+    operation(map.get(next.value), next.value, map);
+  }
+}
+
 var Multimap = (function() {
   var mapCtor;
   if (typeof Map !== 'undefined') {
     mapCtor = Map;
+
+    if (!Map.prototype.keys) {
+      Map.prototype.keys = function() {
+        var keys = [];
+        this.forEach(function(item, key) {
+          keys.push(key);
+        });
+        return keys;
+      };
+    }
   }
 
   function Multimap(iterable) {
     var self = this;
 
     self._map = mapCtor;
-    
+
     if (Multimap.Map) {
       self._map = Multimap.Map;
     }
@@ -34,7 +52,7 @@ var Multimap = (function() {
     return this._map ? this._.get(key) : this._[key];
   };
 
-  /** 
+  /**
    * @param {Object} key
    * @param {Object} val...
    */
@@ -95,12 +113,13 @@ var Multimap = (function() {
     return entry.indexOf(val) != -1;
   };
 
+
   /**
    * @return {Array} all the keys in the map
    */
   Multimap.prototype.keys = function() {
-    if (this._map) 
-      return this._.keys();
+    if (this._map)
+      return makeIterator(this._.keys());
 
     return makeIterator(Object.keys(this._));
   };
@@ -121,13 +140,7 @@ var Multimap = (function() {
    *
    */
   Multimap.prototype.forEachEntry = function(iter) {
-    var self = this;
-
-    var keys = self.keys();
-    var next;
-    while(!(next = keys.next()).done) {
-      iter(self.get(next.value), next.value, self);
-    }
+    mapEach(this, iter);
   };
 
   Multimap.prototype.forEach = function(iter) {
@@ -154,27 +167,53 @@ var Multimap = (function() {
       configurable: false,
       enumerable: true,
       get: function() {
-        var self = this;
-        var keys = self.keys();
-        var next, total = 0;
-        while(!(next = keys.next()).done) {
-          total += self.get(next.value).length;
-        }
+        var total = 0;
+
+        mapEach(this, function(value){
+          total += value.length;
+        });
+
         return total;
       }
     });
 
-
-  function makeIterator(array){
-    var nextIndex = 0;
-    
-    return {
-      next: function(){
-        return nextIndex < array.length ?
-          {value: array[nextIndex++], done: false} :
-        {done: true};
+  Object.defineProperty(
+    Multimap.prototype,
+    "count", {
+      configurable: false,
+      enumerable: true,
+      get: function() {
+        return this._.size;
       }
-    };
+    });
+
+  var safariNext;
+
+  try{
+    safariNext = new Function('iterator', 'makeIterator', 'var keysArray = []; for(var key of iterator){keysArray.push(key);} return makeIterator(keysArray).next;');
+  }catch(error){
+    // for of not implemented;
+  }
+
+  function makeIterator(iterator){
+    if(Array.isArray(iterator)){
+      var nextIndex = 0;
+
+      return {
+        next: function(){
+          return nextIndex < iterator.length ?
+            {value: iterator[nextIndex++], done: false} :
+          {done: true};
+        }
+      };
+    }
+
+    // Only an issue in safari
+    if(!iterator.next && safariNext){
+      iterator.next = safariNext(iterator, makeIterator);
+    }
+
+    return iterator;
   }
 
   return Multimap;

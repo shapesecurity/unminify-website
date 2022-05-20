@@ -16,12 +16,8 @@
  * limitations under the License.
  */
 
-// Hack to make Babel6 import this as a module.
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-exports.default = (function() {
+module.exports = (function() {
   var SPEC = {};
 
   var BOOLEAN = { typeName: "Boolean" };
@@ -35,7 +31,7 @@ exports.default = (function() {
 
   var TYPE_INDICATOR = {
     typeName: "Enum",
-    values: ["ArrayAssignmentTarget", "ArrayBinding", "ArrayExpression", "ArrowExpression", "AssignmentExpression", "AssignmentTargetIdentifier", "AssignmentTargetPropertyIdentifier", "AssignmentTargetPropertyProperty", "AssignmentTargetWithDefault", "BinaryExpression", "BindingIdentifier", "BindingPropertyIdentifier", "BindingPropertyProperty", "BindingWithDefault", "Block", "BlockStatement", "BreakStatement", "CallExpression", "CatchClause", "ClassDeclaration", "ClassElement", "ClassExpression", "CompoundAssignmentExpression", "ComputedMemberAssignmentTarget", "ComputedMemberExpression", "ComputedPropertyName", "ConditionalExpression", "ContinueStatement", "DataProperty", "DebuggerStatement", "Directive", "DoWhileStatement", "EmptyStatement", "Export", "ExportAllFrom", "ExportDefault", "ExportFrom", "ExportFromSpecifier", "ExportLocalSpecifier", "ExportLocals", "ExpressionStatement", "ForInStatement", "ForOfStatement", "ForStatement", "FormalParameters", "FunctionBody", "FunctionDeclaration", "FunctionExpression", "Getter", "IdentifierExpression", "IfStatement", "Import", "ImportNamespace", "ImportSpecifier", "LabeledStatement", "LiteralBooleanExpression", "LiteralInfinityExpression", "LiteralNullExpression", "LiteralNumericExpression", "LiteralRegExpExpression", "LiteralStringExpression", "Method", "Module", "NewExpression", "NewTargetExpression", "ObjectAssignmentTarget", "ObjectBinding", "ObjectExpression", "ReturnStatement", "Script", "Setter", "ShorthandProperty", "SpreadElement", "StaticMemberAssignmentTarget", "StaticMemberExpression", "StaticPropertyName", "Super", "SwitchCase", "SwitchDefault", "SwitchStatement", "SwitchStatementWithDefault", "TemplateElement", "TemplateExpression", "ThisExpression", "ThrowStatement", "TryCatchStatement", "TryFinallyStatement", "UnaryExpression", "UpdateExpression", "VariableDeclaration", "VariableDeclarationStatement", "VariableDeclarator", "WhileStatement", "WithStatement", "YieldExpression", "YieldGeneratorExpression"]
+    values: ["ArrayAssignmentTarget", "ArrayBinding", "ArrayExpression", "ArrowExpression", "AssignmentExpression", "AssignmentTargetIdentifier", "AssignmentTargetPropertyIdentifier", "AssignmentTargetPropertyProperty", "AssignmentTargetWithDefault", "AwaitExpression", "BinaryExpression", "BindingIdentifier", "BindingPropertyIdentifier", "BindingPropertyProperty", "BindingWithDefault", "Block", "BlockStatement", "BreakStatement", "CallExpression", "CatchClause", "ClassDeclaration", "ClassElement", "ClassExpression", "CompoundAssignmentExpression", "ComputedMemberAssignmentTarget", "ComputedMemberExpression", "ComputedPropertyName", "ConditionalExpression", "ContinueStatement", "DataProperty", "DebuggerStatement", "Directive", "DoWhileStatement", "EmptyStatement", "Export", "ExportAllFrom", "ExportDefault", "ExportFrom", "ExportFromSpecifier", "ExportLocalSpecifier", "ExportLocals", "ExpressionStatement", "ForAwaitStatement", "ForInStatement", "ForOfStatement", "ForStatement", "FormalParameters", "FunctionBody", "FunctionDeclaration", "FunctionExpression", "Getter", "IdentifierExpression", "IfStatement", "Import", "ImportNamespace", "ImportSpecifier", "LabeledStatement", "LiteralBooleanExpression", "LiteralInfinityExpression", "LiteralNullExpression", "LiteralNumericExpression", "LiteralRegExpExpression", "LiteralStringExpression", "Method", "Module", "NewExpression", "NewTargetExpression", "ObjectAssignmentTarget", "ObjectBinding", "ObjectExpression", "ReturnStatement", "Script", "Setter", "ShorthandProperty", "SpreadElement", "SpreadProperty", "StaticMemberAssignmentTarget", "StaticMemberExpression", "StaticPropertyName", "Super", "SwitchCase", "SwitchDefault", "SwitchStatement", "SwitchStatementWithDefault", "TemplateElement", "TemplateExpression", "ThisExpression", "ThrowStatement", "TryCatchStatement", "TryFinallyStatement", "UnaryExpression", "UpdateExpression", "VariableDeclaration", "VariableDeclarationStatement", "VariableDeclarator", "WhileStatement", "WithStatement", "YieldExpression", "YieldGeneratorExpression"]
   };
 
   var BinaryOperator = {
@@ -73,6 +69,7 @@ exports.default = (function() {
   var AssignmentTargetPropertyIdentifier = SPEC.AssignmentTargetPropertyIdentifier = {};
   var AssignmentTargetPropertyProperty = SPEC.AssignmentTargetPropertyProperty = {};
   var AssignmentTargetWithDefault = SPEC.AssignmentTargetWithDefault = {};
+  var AwaitExpression = SPEC.AwaitExpression = {};
   var BinaryExpression = SPEC.BinaryExpression = {};
   var BindingIdentifier = SPEC.BindingIdentifier = {};
   var BindingPropertyIdentifier = SPEC.BindingPropertyIdentifier = {};
@@ -105,6 +102,7 @@ exports.default = (function() {
   var ExportLocalSpecifier = SPEC.ExportLocalSpecifier = {};
   var ExportLocals = SPEC.ExportLocals = {};
   var ExpressionStatement = SPEC.ExpressionStatement = {};
+  var ForAwaitStatement = SPEC.ForAwaitStatement = {};
   var ForInStatement = SPEC.ForInStatement = {};
   var ForOfStatement = SPEC.ForOfStatement = {};
   var ForStatement = SPEC.ForStatement = {};
@@ -137,6 +135,7 @@ exports.default = (function() {
   var Setter = SPEC.Setter = {};
   var ShorthandProperty = SPEC.ShorthandProperty = {};
   var SpreadElement = SPEC.SpreadElement = {};
+  var SpreadProperty = SPEC.SpreadProperty = {};
   var StaticMemberAssignmentTarget = SPEC.StaticMemberAssignmentTarget = {};
   var StaticMemberExpression = SPEC.StaticMemberExpression = {};
   var StaticPropertyName = SPEC.StaticPropertyName = {};
@@ -168,16 +167,16 @@ exports.default = (function() {
   var PropertyName = Union(ComputedPropertyName, StaticPropertyName);
   var Function = Union(FunctionDeclaration, FunctionExpression);
   var ImportDeclaration = Union(Import, ImportNamespace);
-  var IterationStatement = Union(DoWhileStatement, ForInStatement, ForOfStatement, ForStatement, WhileStatement);
+  var IterationStatement = Union(DoWhileStatement, ForAwaitStatement, ForInStatement, ForOfStatement, ForStatement, WhileStatement);
   var MemberAssignmentTarget = Union(ComputedMemberAssignmentTarget, StaticMemberAssignmentTarget);
   var BindingProperty = Union(BindingPropertyIdentifier, BindingPropertyProperty);
   var MethodDefinition = Union(Getter, Method, Setter);
   var Program = Union(Module, Script);
   var VariableReference = Union(AssignmentTargetIdentifier, BindingIdentifier, IdentifierExpression);
   var NamedObjectProperty = Union(DataProperty, MethodDefinition);
-  var Expression = Union(ArrayExpression, ArrowExpression, AssignmentExpression, BinaryExpression, CallExpression, ClassExpression, CompoundAssignmentExpression, ConditionalExpression, FunctionExpression, IdentifierExpression, LiteralBooleanExpression, LiteralInfinityExpression, LiteralNullExpression, LiteralNumericExpression, LiteralRegExpExpression, LiteralStringExpression, MemberExpression, NewExpression, NewTargetExpression, ObjectExpression, TemplateExpression, ThisExpression, UnaryExpression, UpdateExpression, YieldExpression, YieldGeneratorExpression);
+  var Expression = Union(ArrayExpression, ArrowExpression, AssignmentExpression, AwaitExpression, BinaryExpression, CallExpression, ClassExpression, CompoundAssignmentExpression, ConditionalExpression, FunctionExpression, IdentifierExpression, LiteralBooleanExpression, LiteralInfinityExpression, LiteralNullExpression, LiteralNumericExpression, LiteralRegExpExpression, LiteralStringExpression, MemberExpression, NewExpression, NewTargetExpression, ObjectExpression, TemplateExpression, ThisExpression, UnaryExpression, UpdateExpression, YieldExpression, YieldGeneratorExpression);
   var Statement = Union(BlockStatement, BreakStatement, ClassDeclaration, ContinueStatement, DebuggerStatement, EmptyStatement, ExpressionStatement, FunctionDeclaration, IfStatement, IterationStatement, LabeledStatement, ReturnStatement, SwitchStatement, SwitchStatementWithDefault, ThrowStatement, TryCatchStatement, TryFinallyStatement, VariableDeclarationStatement, WithStatement);
-  var ObjectProperty = Union(NamedObjectProperty, ShorthandProperty);
+  var ObjectProperty = Union(NamedObjectProperty, ShorthandProperty, SpreadProperty);
   var Node = Union(ArrayAssignmentTarget, ArrayBinding, AssignmentTargetProperty, AssignmentTargetWithDefault, BindingProperty, BindingWithDefault, Block, CatchClause, ClassElement, Directive, ExportDeclaration, ExportFromSpecifier, ExportLocalSpecifier, Expression, FormalParameters, FunctionBody, ImportDeclaration, ImportSpecifier, MemberAssignmentTarget, ObjectAssignmentTarget, ObjectBinding, ObjectProperty, Program, PropertyName, SpreadElement, Statement, Super, SwitchCase, SwitchDefault, TemplateElement, VariableDeclaration, VariableDeclarator, VariableReference);
 
   ArrayAssignmentTarget.typeName = "ArrayAssignmentTarget";
@@ -203,6 +202,7 @@ exports.default = (function() {
   ArrowExpression.typeName = "ArrowExpression";
   ArrowExpression.fields = [
     { name: "type", type: Const(TYPE_INDICATOR), value: "ArrowExpression" },
+    { name: "isAsync", type: BOOLEAN },
     { name: "params", type: FormalParameters },
     { name: "body", type: Union(Expression, FunctionBody) }
   ];
@@ -239,6 +239,12 @@ exports.default = (function() {
     { name: "type", type: Const(TYPE_INDICATOR), value: "AssignmentTargetWithDefault" },
     { name: "binding", type: Union(Union(ArrayAssignmentTarget, ObjectAssignmentTarget), Union(AssignmentTargetIdentifier, MemberAssignmentTarget)) },
     { name: "init", type: Expression }
+  ];
+
+  AwaitExpression.typeName = "AwaitExpression";
+  AwaitExpression.fields = [
+    { name: "type", type: Const(TYPE_INDICATOR), value: "AwaitExpression" },
+    { name: "expression", type: Expression }
   ];
 
   BinaryExpression.typeName = "BinaryExpression";
@@ -304,7 +310,7 @@ exports.default = (function() {
   CatchClause.typeName = "CatchClause";
   CatchClause.fields = [
     { name: "type", type: Const(TYPE_INDICATOR), value: "CatchClause" },
-    { name: "binding", type: Union(BindingIdentifier, Union(ArrayBinding, ObjectBinding)) },
+    { name: "binding", type: Maybe(Union(BindingIdentifier, Union(ArrayBinding, ObjectBinding))) },
     { name: "body", type: Block }
   ];
 
@@ -454,6 +460,14 @@ exports.default = (function() {
     { name: "expression", type: Expression }
   ];
 
+  ForAwaitStatement.typeName = "ForAwaitStatement";
+  ForAwaitStatement.fields = [
+    { name: "type", type: Const(TYPE_INDICATOR), value: "ForAwaitStatement" },
+    { name: "left", type: Union(Union(Union(ArrayAssignmentTarget, ObjectAssignmentTarget), Union(AssignmentTargetIdentifier, MemberAssignmentTarget)), VariableDeclaration) },
+    { name: "right", type: Expression },
+    { name: "body", type: Statement }
+  ];
+
   ForInStatement.typeName = "ForInStatement";
   ForInStatement.fields = [
     { name: "type", type: Const(TYPE_INDICATOR), value: "ForInStatement" },
@@ -496,6 +510,7 @@ exports.default = (function() {
   FunctionDeclaration.typeName = "FunctionDeclaration";
   FunctionDeclaration.fields = [
     { name: "type", type: Const(TYPE_INDICATOR), value: "FunctionDeclaration" },
+    { name: "isAsync", type: BOOLEAN },
     { name: "isGenerator", type: BOOLEAN },
     { name: "name", type: BindingIdentifier },
     { name: "params", type: FormalParameters },
@@ -505,6 +520,7 @@ exports.default = (function() {
   FunctionExpression.typeName = "FunctionExpression";
   FunctionExpression.fields = [
     { name: "type", type: Const(TYPE_INDICATOR), value: "FunctionExpression" },
+    { name: "isAsync", type: BOOLEAN },
     { name: "isGenerator", type: BOOLEAN },
     { name: "name", type: Maybe(BindingIdentifier) },
     { name: "params", type: FormalParameters },
@@ -591,8 +607,9 @@ exports.default = (function() {
     { name: "global", type: BOOLEAN },
     { name: "ignoreCase", type: BOOLEAN },
     { name: "multiLine", type: BOOLEAN },
-    { name: "sticky", type: BOOLEAN },
-    { name: "unicode", type: BOOLEAN }
+    { name: "dotAll", type: BOOLEAN },
+    { name: "unicode", type: BOOLEAN },
+    { name: "sticky", type: BOOLEAN }
   ];
 
   LiteralStringExpression.typeName = "LiteralStringExpression";
@@ -604,6 +621,7 @@ exports.default = (function() {
   Method.typeName = "Method";
   Method.fields = [
     { name: "type", type: Const(TYPE_INDICATOR), value: "Method" },
+    { name: "isAsync", type: BOOLEAN },
     { name: "isGenerator", type: BOOLEAN },
     { name: "name", type: PropertyName },
     { name: "params", type: FormalParameters },
@@ -632,13 +650,15 @@ exports.default = (function() {
   ObjectAssignmentTarget.typeName = "ObjectAssignmentTarget";
   ObjectAssignmentTarget.fields = [
     { name: "type", type: Const(TYPE_INDICATOR), value: "ObjectAssignmentTarget" },
-    { name: "properties", type: List(AssignmentTargetProperty) }
+    { name: "properties", type: List(AssignmentTargetProperty) },
+    { name: "rest", type: Maybe(Union(AssignmentTargetIdentifier, MemberAssignmentTarget)) }
   ];
 
   ObjectBinding.typeName = "ObjectBinding";
   ObjectBinding.fields = [
     { name: "type", type: Const(TYPE_INDICATOR), value: "ObjectBinding" },
-    { name: "properties", type: List(BindingProperty) }
+    { name: "properties", type: List(BindingProperty) },
+    { name: "rest", type: Maybe(BindingIdentifier) }
   ];
 
   ObjectExpression.typeName = "ObjectExpression";
@@ -677,6 +697,12 @@ exports.default = (function() {
   SpreadElement.typeName = "SpreadElement";
   SpreadElement.fields = [
     { name: "type", type: Const(TYPE_INDICATOR), value: "SpreadElement" },
+    { name: "expression", type: Expression }
+  ];
+
+  SpreadProperty.typeName = "SpreadProperty";
+  SpreadProperty.fields = [
+    { name: "type", type: Const(TYPE_INDICATOR), value: "SpreadProperty" },
     { name: "expression", type: Expression }
   ];
 

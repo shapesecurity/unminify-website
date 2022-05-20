@@ -1,59 +1,32 @@
 {
-  "_args": [
-    [
-      "shift-scope@3.1.0",
-      "/Users/mbruce/unminifier-website"
-    ]
+  "name": "shift-scope",
+  "version": "6.0.0",
+  "description": "produce a scope tree for Shift format ASTs",
+  "author": "Shape Security",
+  "homepage": "https://github.com/shapesecurity/shift-scope-js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shapesecurity/shift-scope-js.git"
+  },
+  "main": "src/index.js",
+  "files": [
+    "src"
   ],
-  "_from": "shift-scope@3.1.0",
-  "_id": "shift-scope@3.1.0",
-  "_inBundle": false,
-  "_integrity": "sha1-tmAB1l4Wm/Dy5RJxmK5tjVOPE4Y=",
-  "_location": "/shift-scope",
-  "_phantomChildren": {
-    "shift-ast": "4.0.0"
-  },
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "shift-scope@3.1.0",
-    "name": "shift-scope",
-    "escapedName": "shift-scope",
-    "rawSpec": "3.1.0",
-    "saveSpec": null,
-    "fetchSpec": "3.1.0"
-  },
-  "_requiredBy": [
-    "/unminify"
-  ],
-  "_resolved": "https://registry.npmjs.org/shift-scope/-/shift-scope-3.1.0.tgz",
-  "_spec": "3.1.0",
-  "_where": "/Users/mbruce/unminifier-website",
-  "author": {
-    "name": "Shape Security"
-  },
-  "bugs": {
-    "url": "https://github.com/shapesecurity/shift-scope-js/issues"
+  "scripts": {
+    "build": "echo nothing to do",
+    "test": "mocha --inline-diffs --check-leaks --ui tdd --reporter dot test",
+    "lint": "eslint src test"
   },
   "dependencies": {
     "multimap": "1.0.2",
-    "shift-reducer": "4.0.1",
-    "shift-spec": "2016.0.0"
+    "shift-reducer": "7.0.0",
+    "shift-spec": "2019.0.0"
   },
-  "description": "produce a scope tree for Shift format ASTs",
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-eslint": "7.2.3",
-    "babel-preset-env": "1.6.0",
-    "babel-register": "6.26.0",
     "eslint": "4.6.1",
-    "mocha": "2.3.4",
-    "shift-parser": "5.2.0"
+    "mocha": "8.1.3",
+    "shift-parser": "8.0.0"
   },
-  "files": [
-    "dist"
-  ],
-  "homepage": "https://github.com/shapesecurity/shift-scope-js",
   "keywords": [
     "Shift",
     "scope",
@@ -66,19 +39,8 @@
     "syntax",
     "tree"
   ],
-  "license": "Apache-2.0",
-  "main": "dist/index.js",
-  "name": "shift-scope",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shapesecurity/shift-scope-js.git"
+  "bugs": {
+    "url": "https://github.com/shapesecurity/shift-scope-js/issues"
   },
-  "scripts": {
-    "build": "babel --source-maps-inline --out-dir dist src",
-    "lint": "eslint src test",
-    "prepare": "rm -rf dist && npm update && npm run build",
-    "prepublishOnly": "npm run lint && npm run test",
-    "test": "mocha --compilers js:babel-register --inline-diffs --check-leaks --ui tdd --reporter dot test"
-  },
-  "version": "3.1.0"
+  "license": "Apache-2.0"
 }
