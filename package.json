@@ -10,7 +10,7 @@
   "devDependencies": {
     "esbuild": "0.14.39",
     "http-server": "^14.1.0",
-    "terser": "5.13.1"
+    "terser": "5.14.2"
   },
   "scripts": {
     "build:lib": "bash ./update.sh",
