@@ -4,7 +4,7 @@
 
 This is a website for the [Unminify](https://github.com/shapesecurity/unminify/) tool.
 
-It is available at [unminifer.io](http://unminifer.io).
+It is available at [unminify.io](https://unminify.io/).
 
 ## Usage
 
